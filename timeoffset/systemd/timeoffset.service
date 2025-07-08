@@ -7,8 +7,8 @@ After=network.target
 Type=simple
 Environment="LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketimeMT.so.1"
 Environment="TARGET_PROJECT=dev_java"
-WorkingDirectory=/opt/timeoffset
-ExecStart=/usr/bin/node /opt/timeoffset/bin/www
+WorkingDirectory=/opt/dev_timeoffset_tool/timeoffset
+ExecStart=/usr/bin/node /opt/dev_timeoffset_tool/timeoffset/bin/www
 Restart=on-failure
 RestartSec=5
 
