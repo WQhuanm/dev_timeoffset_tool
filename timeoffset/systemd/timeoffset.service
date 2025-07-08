@@ -1,0 +1,16 @@
+# /usr/lib/systemd/system/timeoffset.service
+[Unit]
+Description=TimeOffset Node.js Service
+After=network.target
+
+[Service]
+Type=simple
+Environment="LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketimeMT.so.1"
+Environment="TARGET_PROJECT=dev_java"
+WorkingDirectory=/opt/timeoffset
+ExecStart=/usr/bin/node /opt/timeoffset/bin/www
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

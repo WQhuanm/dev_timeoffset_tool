@@ -1,0 +1,17 @@
+# /usr/lib/systemd/system/dev_java.service
+[Unit]
+Description=Dev java (test project)
+After=network.target
+
+[Service]
+Type=simple
+Environment="LD_PRELOAD=/usr/lib64/faketime/libfaketimeMT.so.1"
+EnvironmentFile=/opt/timeoffset/config/faketime.env
+
+WorkingDirectory=/opt/dev_java
+ExecStart=exec /usr/bin/java -classpath /opt/dev_java/ -Xms2g -Xmx8g Test
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

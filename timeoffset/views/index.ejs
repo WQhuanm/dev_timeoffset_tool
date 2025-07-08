@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>运营服务器时间调整</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="info">
+      <p>目标项目当前时间: <%= currentTimeStr %></p>
+    </div>
+    <hr>
+    <div id="sync">
+      <form action="/changetime/synctime" method="post">
+        <p><button type="submit">还原时间</button></p>
+      </form>
+    </div>
+    <hr>
+    <div id="form">
+      <form action="/changetime/timeoffset" method="post">
+        <p>设置日期时间：<input type="datetime-local" name="target" value="<%= currentTimeCtl %>" /></p>
+        <p><button type="submit">提交</button></p>
+      </form>
+    </div>
+
+  </body>
+</html>
