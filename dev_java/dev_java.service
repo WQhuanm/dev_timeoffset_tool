@@ -5,11 +5,11 @@ After=network.target
 
 [Service]
 Type=simple
-Environment="LD_PRELOAD=/usr/lib64/faketime/libfaketimeMT.so.1"
+Environment="LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketimeMT.so.1"
 EnvironmentFile=/opt/dev_timeoffset_tool/timeoffset/config/faketime.env
 
-WorkingDirectory=/opt/dev_java
-ExecStart=exec /usr/bin/java -classpath /opt/dev_java/ -Xms2g -Xmx8g Test
+WorkingDirectory=/opt/dev_timeoffset_tool/dev_java
+ExecStart=/usr/bin/java -classpath /opt/dev_timeoffset_tool/dev_java/ -Xms2g -Xmx8g Test
 Restart=on-failure
 RestartSec=5
 
