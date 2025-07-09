@@ -12,7 +12,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-let logStr = path.resolve(__dirname, './log/access.log');
+let logStr = path.resolve(__dirname, './access.log');
 let accessLogStream = fs.createWriteStream(logStr, { flags: 'a' });
 app.use(logger('dev', { stream: accessLogStream }));
 app.use(express.json());
